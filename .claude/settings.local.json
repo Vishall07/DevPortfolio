@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm run *)",
+      "Bash(npm install *)",
+      "Bash(wait *)",
+      "Bash(node_modules/.bin/react-scripts.cmd build *)",
+      "Bash(npx react-scripts *)",
+      "Bash(git add *)",
+      "PowerShell(npm start *)",
+      "PowerShell(Start-Process \"http://localhost:3000\")",
+      "Bash(npm start *)"
+    ]
+  }
+}

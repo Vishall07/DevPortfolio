@@ -22,6 +22,9 @@ function Particle() {
             direction: "right",
             speed: 0.05,
           },
+          color: {
+            value: "#00ff41",
+          },
           size: {
             value: 1,
           },

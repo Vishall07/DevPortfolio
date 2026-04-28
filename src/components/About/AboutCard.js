@@ -32,12 +32,12 @@ function AboutCard() {
           <p style={{ marginTop: "10px" }}>
             <a
               href="mailto:vgouli1998@gmail.com"
-              style={{ color: "white" }}
+              style={{ color: "#00ff41" }}
             >
               vgouli1998@gmail.com
             </a>
           </p>
-          <p style={{ color: "rgb(155 126 172)" }}>
+          <p style={{ color: "#00cc33" }}>
             "Learn Apply and Repeat"{" "}
           </p>
           <footer className="blockquote-footer">Vishal</footer>
