@@ -29,6 +29,14 @@ function AboutCard() {
             </li>
           </ul>
 
+          <p style={{ marginTop: "10px" }}>
+            <a
+              href="mailto:vgouli1998@gmail.com"
+              style={{ color: "white" }}
+            >
+              vgouli1998@gmail.com
+            </a>
+          </p>
           <p style={{ color: "rgb(155 126 172)" }}>
             "Learn Apply and Repeat"{" "}
           </p>
