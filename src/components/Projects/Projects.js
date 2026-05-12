@@ -2,80 +2,83 @@ import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import ProjectCard from "./ProjectCards";
 import Particle from "../Particle";
-import leaf from "../../Assets/Projects/leaf.png";
-import emotion from "../../Assets/Projects/emotion.png";
-import editor from "../../Assets/Projects/codeEditor.png";
-import chatify from "../../Assets/Projects/chatify.png";
-import suicide from "../../Assets/Projects/suicide.png";
-import bitsOfCode from "../../Assets/Projects/blog.png";
+
+// ─────────────────────────────────────────────────────────────────
+//  PROJECT DATA
+//  Edit the objects below to swap in your real project details.
+//  Fields:
+//    title       – project name displayed as the card heading
+//    description – one-paragraph summary of what the project does
+//    techStack   – array of technology/library names shown as badges
+//    ghLink      – GitHub repo URL  (remove the key to hide the button)
+//    demoLink    – live demo URL    (remove the key to hide the button)
+//    imgPath     – imported image   (remove the key to hide the image)
+// ─────────────────────────────────────────────────────────────────
+const projects = [
+  {
+    title: "Fake News Detection System",
+    description:
+      "ML and NLP-driven system that classifies news statements as true or false " +
+      "using the LIAR dataset. Implemented a Retrieval-Augmented Generation (RAG) " +
+      "pipeline to fetch verified source data, embed input news, and cross-check it " +
+      "against a vector database for credibility scoring. Achieved 99% accuracy " +
+      "through real-time web data integration.",
+    techStack: ["Python", "NLP", "Machine Learning", "Streamlit", "RAG"],
+    ghLink: "https://github.com/Vishall07/NLP_Fake_News_Detector",
+  },
+  {
+    title: "Music Recommendation System",
+    description:
+      "Full-stack recommendation engine using collaborative filtering that achieves " +
+      "85% precision on user predictions. Designed the FastAPI backend connecting a " +
+      "Streamlit UI, Grafana monitoring dashboard, and PostgreSQL database. Automated " +
+      "data quality checks and real-time ingestion pipelines using Apache Airflow DAGs.",
+    techStack: ["FastAPI", "Apache Airflow", "Streamlit", "Grafana", "PostgreSQL"],
+    ghLink: "https://github.com/Vishall07/Music-Prediction-App",
+  },
+  {
+    title: "Pothole Volume Detector",
+    description:
+      "Computer Vision system that detects and measures pothole volumes using a " +
+      "camera combined with ultrasonic IoT sensors. Developed a custom edge-detection " +
+      "algorithm with grayscale conversion and noise reduction preprocessing to " +
+      "estimate volume, reaching 72% detection accuracy.",
+    techStack: ["OpenCV", "Arduino", "Computer Vision", "IoT"],
+    demoLink: "https://www.youtube.com/watch?v=H-bwy9gw7OU",
+  },
+];
+// ─────────────────────────────────────────────────────────────────
 
 function Projects() {
   return (
     <Container fluid className="project-section">
       <Particle />
       <Container>
+
+        {/* ── Section heading ── */}
         <h1 className="project-heading">
-          My Recent <strong className="purple">Works </strong>
+          My Recent <strong className="purple">Works</strong>
         </h1>
         <p style={{ color: "#00ff41" }}>
           Here are a few projects I've worked on recently.
         </p>
+
+        {/* ── Project cards ── */}
         <Row style={{ justifyContent: "center", paddingBottom: "10px" }}>
-          <Col md={4} className="project-card">
-            <ProjectCard
-              imgPath={chatify}
-              isBlog={false}
-              title="Chatify"
-              description="Personal Chat Room or Workspace to share resources and hangout with friends build with react.js, Material-UI, and Firebase. Have features which allows user for realtime messaging, image sharing as well as supports reactions on messages."
-            />
-          </Col>
-
-          <Col md={4} className="project-card">
-            <ProjectCard
-              imgPath={bitsOfCode}
-              isBlog={false}
-              title="Bits-0f-C0de"
-              description="My personal blog page build with Next.js and Tailwind Css which takes the content from makdown files and renders it using Next.js. Supports dark mode and easy to write blogs using markdown."
-            />
-          </Col>
-
-          <Col md={4} className="project-card">
-            <ProjectCard
-              imgPath={editor}
-              isBlog={false}
-              title="Editor.io"
-              description="Online code and markdown editor build with react.js. Online Editor which supports html, css, and js code with instant view of website. Online markdown editor for building README file which supports GFM, Custom Html tags with toolbar and instant preview.Both the editor supports auto save of work using Local Storage"
-            />
-          </Col>
-
-          <Col md={4} className="project-card">
-            <ProjectCard
-              imgPath={leaf}
-              isBlog={false}
-              title="Plant AI"
-              description="Used the plant disease dataset from Kaggle and trained a image classifer model using 'PyTorch' framework using CNN and Transfer Learning with 38 classes of various plant leaves. The model was successfully able to detect diseased and healthy leaves of 14 unique plants. I was able to achieve an accuracy of 98% by using Resnet34 pretrained model."
-            />
-          </Col>
-
-          <Col md={4} className="project-card">
-            <ProjectCard
-              imgPath={suicide}
-              isBlog={false}
-              title="Ai For Social Good"
-              description="Using 'Natural Launguage Processing' for the detection of suicide-related posts and user's suicide ideation in cyberspace  and thus helping in sucide prevention."
-            />
-          </Col>
-
-          <Col md={4} className="project-card">
-            <ProjectCard
-              imgPath={emotion}
-              isBlog={false}
-              title="Face Recognition and Emotion Detection"
-              description="Trained a CNN classifier using 'FER-2013 dataset' with Keras and tensorflow backened. The classifier sucessfully predicted the various types of emotions of human. And the highest accuracy obtained with the model was 60.1%.
-              Then used Open-CV to detect the face in an image and then pass the face to the classifer to predict the emotion of a person."
-            />
-          </Col>
+          {projects.map((project, index) => (
+            <Col key={index} md={4} className="project-card">
+              <ProjectCard
+                imgPath={project.imgPath}
+                title={project.title}
+                description={project.description}
+                techStack={project.techStack}
+                ghLink={project.ghLink}
+                demoLink={project.demoLink}
+              />
+            </Col>
+          ))}
         </Row>
+
       </Container>
     </Container>
   );
