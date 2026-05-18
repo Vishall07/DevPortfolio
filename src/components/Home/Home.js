@@ -4,6 +4,7 @@ import homeLogo from "../../Assets/home-main.svg";
 import Particle from "../Particle";
 import Home2 from "./Home2";
 import Type from "./Type";
+import Typewriter from "typewriter-effect";
 
 function Home() {
   return (
@@ -14,10 +15,14 @@ function Home() {
           <Row>
             <Col md={7} className="home-header">
               <h1 style={{ paddingBottom: 15 }} className="heading">
-                Bonjour!{" "}
-                <span className="wave" role="img" aria-labelledby="wave">
-                  👋🏻
-                </span>
+                <Typewriter
+                  options={{
+                    strings: ["ನಮಸ್ಕಾರ!", "Bonjour!",  "Hello!"],
+                    autoStart: true,
+                    loop: true,
+                    deleteSpeed: 50,
+                  }}
+                />{" "}
               </h1>
 
               <h1 className="heading-name">
